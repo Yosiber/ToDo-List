@@ -9,5 +9,8 @@ import java.util.List;
 
 @Repository
 public interface TaskRepository extends JpaRepository<TasksEntity, Long> {
+    List<TasksEntity> findByUser_Id(Long userId);
+
+    List<TasksEntity> findByExpiration(LocalDate expiration);
 
 }
