@@ -14,6 +14,7 @@ public class UserMapper {
         return UserRequestDTO.builder()
                 .name(entity.getName())
                 .email(entity.getEmail())
+                .password(entity.getPassword())
                 .build();
     }
 
@@ -27,13 +28,9 @@ public class UserMapper {
         return UsersEntity.builder()
                 .name(dto.getName())
                 .email(dto.getEmail())
+                .password(dto.getPassword())
                 .build();
     }
 
-    public List<UsersEntity> toEntity(List<UserRequestDTO> dto) {
-        return dto.stream()
-                .map(this::toEntity)
-                .toList();
-    }
 
 }

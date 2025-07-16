@@ -25,6 +25,9 @@ public class UsersEntity {
     @Column(nullable = false, unique = true, name = "correo")
     private String email;
 
+    @Column(nullable = false, name = "contraseña")
+    private String password;
+
     @Column(nullable = false, name = "fecha_creacion")
     @CreatedDate
     private LocalDateTime createdAt;
