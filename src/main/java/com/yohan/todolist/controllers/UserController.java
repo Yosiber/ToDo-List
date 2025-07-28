@@ -20,7 +20,7 @@ public class UserController {
 
     private final UserService userService;
     private final UserMapper userMapper;
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    //private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @GetMapping("/usuarios")
     public ResponseEntity<List<UserRequestDTO>> getAllUsers() {
@@ -36,7 +36,7 @@ public class UserController {
 
     @PostMapping("/registro")
     public ResponseEntity<UserRequestDTO> register(@RequestBody UserRequestDTO userDto) {
-        userDto.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
+        // userDto.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
         UsersEntity createUser = userService.createUser(userMapper.toEntity(userDto));
         return ResponseEntity.status(HttpStatus.CREATED).body(userMapper.toDto(createUser));
     }
